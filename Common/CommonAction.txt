@@ -1,0 +1,38 @@
+*** Settings ***
+Library           Selenium2Library
+Library           DateTime
+
+*** Variables ***
+&{url}            HIS_TGG=https://histest.vnptsoftware.vn/vnpthis/    RIS_IDC=https://idc.pacs.cf/
+
+*** Keywords ***
+OpenChromeBrowser
+    Create Webdriver    Chrome    executable_path=C:/Python27/Driver/chromedriver.exe
+    Go To    ${url}[RIS_IDC]
+    Maximize Browser Window
+
+CloseBrowser
+    Selenium2Library.Close Browser
+
+OpenFirefoxBrowser
+    Create Webdriver    Firefox    executable_path=C:/Python27/Driver/geckodriver.exe
+    Go To    ${url}[RIS_IDC]
+    Maximize Browser Window
+
+OpenBrowser
+    [Arguments]    ${browser}=firefox
+    Run Keyword If    ${browser}==chrome    OpenChromeBrowser
+    ...    ELSE IF    ${browser}==firefox    OpenFirefoxBrowser
+
+Select By Value
+    [Arguments]    ${locator}    ${value}
+    Click Element    ${locator}
+    ${option}=    Set Variable    ${locator}//option[contains(text(),'${value}')]
+    Wait Until Element Is Visible    ${option}
+    Click Element    ${option}
+
+GetUniqueValue
+    [Arguments]    ${unique_value}
+    ${UNIQUE}    Get Current Date    result_format=%Y%d%H%M%S
+    ${UNIQUE_VALUE}    Convert To String    ${UNIQUE}
+    Return From Keyword    ${UNIQUE_VALUE}

@@ -1,0 +1,13 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${menu_yeucau}    xpath=//a[contains(@href,'order-register')]
+${menu_tiepnhan}    xpath=//a[contains(@href,'request')]
+
+*** Keywords ***
+GoToYeuCauPage
+    Click Element    ${menu_yeucau}
+
+GoToTiepNhanPage
+    Click Element    ${menu_tiepnhan}

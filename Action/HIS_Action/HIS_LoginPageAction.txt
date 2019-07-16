@@ -1,0 +1,10 @@
+*** Settings ***
+
+*** Variables ***
+&{users}          user_test_74TW=74TW.ADMIN    pass_test_74TW=Gppm2#2018
+
+*** Keywords ***
+HISLoginAction
+    Input Text    ${txb_username}    &{users}[user_test_74TW]
+    Input Password    ${txb_password}    &{users}[pass_test_74TW]
+    Click Button    ${btn_login}

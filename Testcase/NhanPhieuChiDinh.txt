@@ -1,0 +1,19 @@
+*** Settings ***
+Test Teardown     Selenium2Library.Close Browser
+Resource          ../Action/HIS_Action/HIS_ThietLapPhongPageAction.txt
+Resource          ../Action/HIS_Action/HIS_MainPageAction.txt
+Resource          ../Common/CommonAction.txt
+Resource          ../Action/HIS_Action/HIS_TiepNhanKhamBenhNgoaiTruPageAction.txt
+Resource          ../Action/HIS_Action/HIS_KhamBenhPageAction.txt
+Resource          ../Action/RIS_Action/RIS_LoginPageAction.txt
+Resource          ../Action/RIS_Action/RIS_MainPageAction.txt
+Resource          ../Action/RIS_Action/RIS_YeuCauPageAction.txt
+Resource          ../Action/RIS_Action/RIS_TiepNhanPageAction.txt
+
+*** Test Cases ***
+VerifyTaoPhieuYeuCau
+    OpenFirefoxBrowser
+    RISLogin
+    Wait Until Element Is Visible    ${menu_yeucau}
+    GoToTiepNhanPage
+    TaoPhieuYeuCau

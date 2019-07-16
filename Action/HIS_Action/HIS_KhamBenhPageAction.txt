@@ -1,0 +1,35 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../../Common/CommonAction.txt
+
+*** Keywords ***
+BatDauKham
+    Wait Until Element Is Visible    ${btn_batdau}
+    ${PATIENT_NAME}=    Convert To Number    Get Time
+    Comment    ${patient_name}    Replace Variables    BN NGOAI TRU ${PATIENT_NAME}
+    Click Element    ${data_created_patient}
+    Click Button    ${btn_batdau}
+    Wait Until Element Is Visible    ${iframe_batdaukhambenh}
+    Select Frame    ${iframe_batdaukhambenh}
+    Press Key    ${txb_benhchinh}    \\uE036
+    Wait Until Element Is Visible    ${iframe_timkiemicdthongthuong}
+    Select Frame    ${iframe_timkiemicdthongthuong}
+    Click Element    ${data_table}
+    Click Button    ${btn_chonbenh}
+    Wait Until Element Is Not Visible    ${iframe_timkiemicdthongthuong}
+    Unselect Frame
+    Click Button    ${btn_luudong}
+    Wait Until Element Is Not Visible    ${iframe_batdaukhambenh}
+    Unselect Frame
+
+ChiDinhDichVuCLS
+    Wait Until Element Is Visible    ${btn_chidinhdichvu}
+    Click Button    ${btn_chidinhdichvu}
+    Wait Until Element Is Visible    ${iframe_chidinhdichvucls}
+    Select Frame    ${iframe_chidinhdichvucls}
+    Click Element    ${tab_cdha}
+    Select By Value    ${slb_nhomcdha}    X Quang
+    Select Checkbox    ${cbo_dichvu}
+    Click Button    ${btn_luudv}
+    Wait Until Element Is Not Visible    ${iframe_chidinhdichvucls}
+    Unselect Frame

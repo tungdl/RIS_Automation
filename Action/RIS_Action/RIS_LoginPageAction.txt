@@ -1,0 +1,13 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${txb_usernameRIS}    xpath=//input[@id='username']
+${txb_passwordRIS}    xpath=//input[@id='password']
+${btn_loginRIS}    xpath=//button[@id='btn-login']
+
+*** Keywords ***
+RISLogin
+    Input Text    ${txb_usernameRIS}    admin_tuan
+    Input Password    ${txb_passwordRIS}    vnpt123
+    Click Button    ${btn_loginRIS}

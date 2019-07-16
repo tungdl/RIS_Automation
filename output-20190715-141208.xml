@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20190715 14:12:10.009" generator="Robot 3.1.1 (Python 2.7.14 on win32)">
+<suite source="F:\VNPT\RIS_HIS_Automation\Testcase\NhanPhieuChiDinh.txt" id="s1" name="NhanPhieuChiDinh">
+<test id="s1-t1" name="VerifyTaoPhieuYeuCau">
+<kw name="OpenFirefoxBrowser" library="CommonAction">
+<kw name="Create Webdriver" library="Selenium2Library">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Firefox</arg>
+<arg>executable_path=C:/Python27/Driver/geckodriver.exe</arg>
+</arguments>
+<msg timestamp="20190715 14:12:11.648" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
+<status status="PASS" endtime="20190715 14:12:21.567" starttime="20190715 14:12:11.648"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${url}[RIS_IDC]</arg>
+</arguments>
+<msg timestamp="20190715 14:12:21.568" level="INFO">Opening url 'https://idc.pacs.cf/'</msg>
+<status status="PASS" endtime="20190715 14:12:22.637" starttime="20190715 14:12:21.567"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20190715 14:12:22.908" starttime="20190715 14:12:22.637"></status>
+</kw>
+<status status="PASS" endtime="20190715 14:12:22.908" starttime="20190715 14:12:11.647"></status>
+</kw>
+<kw name="RISLogin" library="RIS_LoginPageAction">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txb_usernameRIS}</arg>
+<arg>admin_tuan</arg>
+</arguments>
+<msg timestamp="20190715 14:12:22.910" level="INFO">Typing text 'admin_tuan' into text field 'xpath=//input[@id='username']'.</msg>
+<status status="PASS" endtime="20190715 14:12:23.004" starttime="20190715 14:12:22.910"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txb_passwordRIS}</arg>
+<arg>vnpt123</arg>
+</arguments>
+<msg timestamp="20190715 14:12:23.006" level="INFO">Typing password into text field 'xpath=//input[@id='password']'.</msg>
+<status status="PASS" endtime="20190715 14:12:23.094" starttime="20190715 14:12:23.004"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_loginRIS}</arg>
+</arguments>
+<msg timestamp="20190715 14:12:23.094" level="INFO">Clicking button 'xpath=//button[@id='btn-login']'.</msg>
+<status status="PASS" endtime="20190715 14:12:24.233" starttime="20190715 14:12:23.094"></status>
+</kw>
+<status status="PASS" endtime="20190715 14:12:24.233" starttime="20190715 14:12:22.909"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${menu_yeucau}</arg>
+</arguments>
+<status status="PASS" endtime="20190715 14:12:24.285" starttime="20190715 14:12:24.234"></status>
+</kw>
+<kw name="GoToTiepNhanPage" library="RIS_MainPageAction">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${menu_tiepnhan}</arg>
+</arguments>
+<msg timestamp="20190715 14:12:24.289" level="INFO">Clicking element 'xpath=//a[contains(@href,'request')]'.</msg>
+<status status="PASS" endtime="20190715 14:12:24.903" starttime="20190715 14:12:24.288"></status>
+</kw>
+<status status="PASS" endtime="20190715 14:12:24.904" starttime="20190715 14:12:24.287"></status>
+</kw>
+<kw name="TaoPhieuYeuCau" library="RIS_TiepNhanPageAction">
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=%Y%d%H%M%S</arg>
+</arguments>
+<assign>
+<var>${UniqueValue}</var>
+</assign>
+<msg timestamp="20190715 14:12:24.908" level="INFO">${UniqueValue} = 201915141224</msg>
+<status status="PASS" endtime="20190715 14:12:24.908" starttime="20190715 14:12:24.907"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>benhnhan</arg>
+</arguments>
+<assign>
+<var>${TEN}</var>
+</assign>
+<msg timestamp="20190715 14:12:24.909" level="INFO">${TEN} = benhnhan</msg>
+<status status="PASS" endtime="20190715 14:12:24.909" starttime="20190715 14:12:24.908"></status>
+</kw>
+<kw name="GetUniqueValue" library="CommonAction">
+<arguments>
+<arg>${unique_value}</arg>
+</arguments>
+<assign>
+<var>${ten_benh_nhan}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=%Y%d%H%M%S</arg>
+</arguments>
+<assign>
+<var>${UNIQUE}</var>
+</assign>
+<msg timestamp="20190715 14:12:24.910" level="INFO">${UNIQUE} = 201915141224</msg>
+<status status="PASS" endtime="20190715 14:12:24.910" starttime="20190715 14:12:24.909"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${UNIQUE}</arg>
+</arguments>
+<assign>
+<var>${UNIQUE_VALUE}</var>
+</assign>
+<msg timestamp="20190715 14:12:24.910" level="INFO">${UNIQUE_VALUE} = 201915141224</msg>
+<status status="PASS" endtime="20190715 14:12:24.911" starttime="20190715 14:12:24.910"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${UNIQUE_VALUE}</arg>
+</arguments>
+<msg timestamp="20190715 14:12:24.911" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20190715 14:12:24.911" starttime="20190715 14:12:24.911"></status>
+</kw>
+<msg timestamp="20190715 14:12:24.912" level="INFO">${ten_benh_nhan} = 201915141224</msg>
+<status status="PASS" endtime="20190715 14:12:24.912" starttime="20190715 14:12:24.909"></status>
+</kw>
+<kw name="Clear Element Text" library="Selenium2Library">
+<doc>Clears the value of text entry element identified by ``locator``.</doc>
+<arguments>
+<arg>${txb_ten_benh_nhan}</arg>
+</arguments>
+<status status="PASS" endtime="20190715 14:12:24.932" starttime="20190715 14:12:24.912"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txb_ten_benh_nhan}</arg>
+<arg>${ten_benh_nhan}</arg>
+</arguments>
+<msg timestamp="20190715 14:12:24.933" level="INFO">Typing text '201915141224' into text field 'xpath=//input[@id='patient-name']'.</msg>
+<status status="PASS" endtime="20190715 14:12:24.978" starttime="20190715 14:12:24.933"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txb_tuoi}</arg>
+<arg>30y</arg>
+</arguments>
+<msg timestamp="20190715 14:12:24.978" level="INFO">Typing text '30y' into text field 'xpath=//input[@id='patient-age']'.</msg>
+<status status="PASS" endtime="20190715 14:12:25.008" starttime="20190715 14:12:24.978"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txb_dia_chi}</arg>
+<arg>344 2-9</arg>
+</arguments>
+<msg timestamp="20190715 14:12:25.009" level="INFO">Typing text '344 2-9' into text field 'xpath=//input[@id='address']'.</msg>
+<status status="PASS" endtime="20190715 14:12:25.034" starttime="20190715 14:12:25.009"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>${slb_loai_benh_nhan}</arg>
+<arg>O</arg>
+</arguments>
+<msg timestamp="20190715 14:12:25.034" level="INFO">Selecting options from selection list 'xpath=//select[@id='patient-class']' by value O.</msg>
+<status status="PASS" endtime="20190715 14:12:25.295" starttime="20190715 14:12:25.034"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>${slb_doi_tuong}</arg>
+<arg>238</arg>
+</arguments>
+<msg timestamp="20190715 14:12:25.316" level="INFO">Selecting options from selection list 'xpath=//select[@id='patient-type']' by value 238.</msg>
+<status status="PASS" endtime="20190715 14:12:25.551" starttime="20190715 14:12:25.315"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>${slb_gioi_tinh}</arg>
+<arg>MALE</arg>
+</arguments>
+<msg timestamp="20190715 14:12:25.552" level="INFO">Selecting options from selection list 'xpath=//select[@id='gender']' by value MALE.</msg>
+<status status="PASS" endtime="20190715 14:12:25.577" starttime="20190715 14:12:25.552"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>${slb_loai_dich_vu}</arg>
+<arg>XRAY_G</arg>
+</arguments>
+<msg timestamp="20190715 14:12:25.577" level="INFO">Selecting options from selection list 'xpath=//select[@id='select-concept-group']' by value XRAY_G.</msg>
+<status status="PASS" endtime="20190715 14:12:25.817" starttime="20190715 14:12:25.577"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${slb_dich_vu}</arg>
+</arguments>
+<msg timestamp="20190715 14:12:25.818" level="INFO">Clicking element 'xpath=//a[@class='select2-choice']'.</msg>
+<status status="PASS" endtime="20190715 14:12:26.535" starttime="20190715 14:12:25.818"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txb_dich_vu_search}</arg>
+<arg>18.0135.0025</arg>
+</arguments>
+<msg timestamp="20190715 14:12:26.536" level="INFO">Typing text '18.0135.0025' into text field 'xpath=//input[@id='s2id_autogen1_search']'.</msg>
+<status status="PASS" endtime="20190715 14:12:26.567" starttime="20190715 14:12:26.535"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${lnk_dich_vu}</arg>
+</arguments>
+<status status="PASS" endtime="20190715 14:12:26.591" starttime="20190715 14:12:26.567"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${lnk_dich_vu}</arg>
+</arguments>
+<msg timestamp="20190715 14:12:26.591" level="INFO">Clicking element 'xpath=//div[@id='select2-result-label-2']'.</msg>
+<status status="PASS" endtime="20190715 14:12:27.305" starttime="20190715 14:12:26.591"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_luu_yeu_cau}</arg>
+</arguments>
+<msg timestamp="20190715 14:12:27.306" level="INFO">Clicking button 'xpath=//button[@id='save-request-info-btn']'.</msg>
+<status status="PASS" endtime="20190715 14:12:27.546" starttime="20190715 14:12:27.305"></status>
+</kw>
+<status status="PASS" endtime="20190715 14:12:27.546" starttime="20190715 14:12:24.905"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20190715 14:12:28.564" starttime="20190715 14:12:27.546"></status>
+</kw>
+<status status="PASS" endtime="20190715 14:12:28.564" critical="yes" starttime="20190715 14:12:11.647"></status>
+</test>
+<status status="PASS" endtime="20190715 14:12:28.566" starttime="20190715 14:12:10.017"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="NhanPhieuChiDinh" pass="1">NhanPhieuChiDinh</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20190715 14:12:08.287" level="WARN">Automatically parsing other than '*.robot' files is deprecated. Convert 'F:\VNPT\RIS_HIS_Automation\Testcase\NhanPhieuChiDinh.txt' to '*.robot' format or use '--extension' to explicitly configure which files to parse.</msg>
+</errors>
+</robot>

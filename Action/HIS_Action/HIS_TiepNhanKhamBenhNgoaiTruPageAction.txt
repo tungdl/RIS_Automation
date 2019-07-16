@@ -1,0 +1,31 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../../Common/CommonAction.txt
+
+*** Keywords ***
+TaoPhieuChiDinhMoi
+    Wait Until Element Is Visible    ${btn_luu}
+    Input Text    ${txb_name}    BN NT 11 06
+    Input Text    ${txb_birthday}    1980
+    Input Text    ${txb_tinh}    26
+    Input Text    ${txb_huyen}    2
+    Input Text    ${txb_xa}    3
+    Unselect Checkbox    ${ckb_checkbhyt}
+    Unselect Checkbox    ${ckb_giuthebhyt}
+    Input Text    ${txb_mabhyt}    DN1112223334447
+    Input Text    ${txb_ngayketthuc}    31/12/2022
+    Input Text    ${txb_yeucaukham}    2-Khám Nội(02.1896)
+    Select By Value    ${slb_phongkham}    4
+    Comment    Input Text    ${txb_phongkham}    [00/00/000] Phòng Khám số 4
+    Comment    Input Text    ${txb_noidkkb}    01A01
+    ChonNoiDangKyKhamChuaBenh
+    Click Button    ${btn_luu}
+    Wait Until Element Is Visible    ${popup_xacnhan}
+    Click Button    ${btn_popup_ok}
+    Click Button    ${btn_popup_ok}
+    Wait Until Element Is Not Visible    ${btn_popup_ok}
+
+ChonNoiDangKyKhamChuaBenh
+    Input Text    ${txb_noidkkb}    1
+    Wait Until Element Is Visible    ${txt_noidkkcb_header}
+    Click Element    ${txt_noidkkcb_value}

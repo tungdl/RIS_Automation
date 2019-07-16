@@ -1,0 +1,18 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Keywords ***
+SelectMenuTiepNhanKhamBenhNgoaiTru
+    Wait Until Element Is Visible    ${menu_lv1_ngoaitru}
+    Mouse Over    ${menu_lv1_ngoaitru}
+    Mouse Over    ${menu_lv2_tiepnhankhambenh}
+    Click Element    ${menu_lv3_tiepnhankhambenh}
+
+SelectMenuKhamBenhNgoaiTru
+    Wait Until Element Is Visible    ${menu_lv1_ngoaitru}
+    Mouse Over    ${menu_lv1_ngoaitru}
+    Wait Until Element Is Visible    ${menu_lv2_khambenh}
+    Mouse Over    ${menu_lv2_khambenh}
+    Wait Until Element Is Visible    ${menu_lv3_khambenh}
+    Mouse Over    ${menu_lv3_khambenh}
+    Click Element    ${menu_lv3_khambenh}

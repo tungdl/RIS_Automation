@@ -1,0 +1,28 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${btn_yeucaucapnhat}    xpath=//button[@id='update-order-from-his']
+${modal_capnhat}    xpath=//div[@id='update-request-order-modal']
+${btn_capnhat}    xpath=//button[@id='btn-submit-update-request-order']
+${btn_huy}        xpath=//button[contains(text(),'HỦY')]
+${msg_notify}     xpath=//ul[@id='noty_topRight_layout_container']    # Đã cập nhật danh sách phiếu chỉ định từ hệ thống HIS thành công.
+${table_order}    xpath=//table[@id='order-table']
+${txt_patientname}    xpath=//table[@id='order-table']//td[contains(@class,'patient-name')]
+
+*** Keywords ***
+CapNhatYeuCau
+    Wait Until Element Is Visible    ${btn_yeucaucapnhat}
+    Click Button    ${btn_yeucaucapnhat}
+    Click Button    ${btn_capnhat}
+    Wait Until Element Is Not Visible    ${btn_capnhat}
+
+CheckPhieuYeuCauInfo
+
+CheckPhieuYeuCauDV
+
+VerifyTrangThaiPhieuDaHuy
+
+VerifyTrangThaiPhieuDangCho
+
+VerifyTrangThaiPhieuDangXuLy

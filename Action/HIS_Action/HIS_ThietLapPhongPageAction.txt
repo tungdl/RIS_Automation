@@ -1,0 +1,15 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Keywords ***
+HISSelectPhongAction
+    Wait Until Element Is Visible    ${btn_thietlapphong}
+    Select From List By Value    ${slb_khoa}    6665    #Khoa khám bệnh
+    Select From List By Value    ${slb_phong}    6705    #Phòng khám số 4
+    Click Button    ${btn_thietlapphong}
+
+HISInputPhongAction
+    Wait Until Element Is Visible    ${btn_thietlapphong}
+    Input Text    ${txb_khoa}    Khoa Khám bệnh
+    Input Text    ${txb_phong}    Phòng Khám số 4
+    Click Button    ${btn_thietlapphong}

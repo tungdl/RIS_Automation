@@ -1,0 +1,35 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../../Common/CommonAction.txt
+
+*** Variables ***
+${slb_loai_benh_nhan}    xpath=//select[@id='patient-class']
+${slb_doi_tuong}    xpath=//select[@id='patient-type']
+${txb_ten_benh_nhan}    xpath=//input[@id='patient-name']
+${txb_tuoi}       xpath=//input[@id='patient-age']
+${slb_gioi_tinh}    xpath=//select[@id='gender']
+${txb_dia_chi}    xpath=//input[@id='address']
+${slb_loai_dich_vu}    xpath=//select[@id='select-concept-group']
+${slb_dich_vu}    xpath=//a[@class='select2-choice']
+${txb_dich_vu_search}    xpath=//input[@id='s2id_autogen1_search']
+${btn_luu_yeu_cau}    xpath=//button[@id='save-request-info-btn']
+${lnk_dich_vu}    xpath=//div[@id='select2-result-label-2']
+
+*** Keywords ***
+TaoPhieuYeuCau
+    ${UniqueValue}    Get Current Date    result_format=%Y%d%H%M%S
+    ${TEN}=    Set Variable    benhnhan
+    ${ten_benh_nhan}=    GetUniqueValue    ${unique_value}
+    Clear Element Text    ${txb_ten_benh_nhan}
+    Input Text    ${txb_ten_benh_nhan}    ${ten_benh_nhan}
+    Input Text    ${txb_tuoi}    30y
+    Input Text    ${txb_dia_chi}    344 2-9
+    Select From List By Value    ${slb_loai_benh_nhan}    O
+    Select From List By Value    ${slb_doi_tuong}    238
+    Select From List By Value    ${slb_gioi_tinh}    MALE
+    Select From List By Value    ${slb_loai_dich_vu}    XRAY_G
+    Click Element    ${slb_dich_vu}
+    Input Text    ${txb_dich_vu_search}    18.0135.0025
+    Wait Until Element Is Visible    ${lnk_dich_vu}
+    Click Element    ${lnk_dich_vu}
+    Click Button    ${btn_luu_yeu_cau}
